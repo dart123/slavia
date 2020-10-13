@@ -305,6 +305,9 @@
         {
             $items = $this->get_all();
 
+            $log = new Rcl_Log();
+            $log->insert_log("refs: ".print_r($items, true));
+
             if (isset($items) && !empty($items))
             {
                 if (isset($items[$host_id]) )
@@ -314,7 +317,7 @@
                 elseif (!isset($items[$host_id]))
                 {
                     //Добавляем массив данных для данного пользователя
-                    $items += array($host_id => array());
+                    $items[$host_id] = array();
 
                     array_push($items[$host_id], $award_item);
                 }
@@ -325,6 +328,7 @@
                 $items = array($host_id => array());
                 array_push($items[$host_id], $award_item);
             }
+            $log->insert_log("new ref: ".print_r($items[$host_id], true));
 
             //log = new Rcl_Log();
             //$log->insert_log("award_item: ".print_r($award_item, true));

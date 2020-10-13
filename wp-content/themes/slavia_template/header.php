@@ -16,7 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content='Александр Земянский' />
-    <meta name="copyright" lang="ru" content='ООО "Высокотехнологичные Розничные Решения"' />
+<!--    <meta name="copyright" lang="ru" content='ООО "Высокотехнологичные Розничные Решения"' />-->
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
@@ -88,7 +88,7 @@
         <!-- Шапка главной страницы -->
         <div class="col-md-12"  style="z-index: 5;">
             <div class="row">
-                <div class="col-lg-4 col-9">
+                <div class="col-lg-4 col-9 col-sm-6">
                     <a href="http://vnuk2.ev88.fvds.ru/">
                         <!--Логотип и название -->
 
@@ -122,14 +122,14 @@
                     </div>
 
                 </div>
-                <div class="col-lg-2 col-1 px-0">
+                <div class="col-lg-2 col-1 col-sm-4 px-0 profile-button">
                     <div class="desctop-menu">
                         <?php if ( !is_user_logged_in() ): ?>
                             <a id="modal-545065" href="#modal-container-545065" role="button" class="rcl-login" data-toggle="modal"><li class="btn-custom-one text-center">Авторизация</li></a>
                         <?php else: ?>
                             <a id="modal-545065" href="/profile" role="button">
                                 <li class="btn-custom-two text-center" id="profil_user_btn">
-                                    <img src="<?php echo trailingslashit( $upload_dir['baseurl'] ) . '2019/12/profil.png'?>"> Профиль
+                                    <img src="<?php echo trailingslashit( $upload_dir['baseurl'] ) . '2019/12/profil.png'?>"> <span>Профиль</span>
                                 </li>
                             </a>
                         <?php endif; ?>

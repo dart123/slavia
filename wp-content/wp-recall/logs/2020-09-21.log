@@ -1,0 +1,26 @@
+ref exchange request: Array
+(
+    [input_sum] => 500
+    [input_currency] => Сайты под ключ от 25000₽ пайщик №432
+    [output_sum] => 26939.66
+    [output_currency] => Urals test for dart
+    [bank] => 
+    [card_num] => 
+    [card_name] => 
+    [requisites] => 3PAM1XRQG4cpvh15evZenJWvXBAcTcC2jjt
+    [date] => 21.09.20 19:22:04
+    [status] => completed
+)
+
+email: mmbolz@gmail.com; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: raelynn orr</p>
+    <p>Пароль: raelynn orr</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJyYWVseW5uIG9yciIsIjA2ZWI2MWI4MzlhMGNlZmVlNDk2N2M2N2NjYjA5OWRjIl0%3D">http://pkslav.com/profile/?rcl-confirmdata=WyJyYWVseW5uIG9yciIsIjA2ZWI2MWI4MzlhMGNlZmVlNDk2N2M2N2NjYjA5OWRjIl0%3D</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+

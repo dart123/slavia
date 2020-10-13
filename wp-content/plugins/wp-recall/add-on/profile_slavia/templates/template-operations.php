@@ -60,19 +60,19 @@
                         <div class="col-2 text-center">
                             Дата
                         </div>
-                        <div class="col-2 text-center">
+                        <div class="col-xs-2 col-2 text-center">
                             От кого
                         </div>
-                        <div class="col-2 text-center">
-                            Отдает
+                        <div class="col-xs-2 col-xl-2 col-sm-3 col-2 text-center">
+                            Отдает/<br>Забирает
                         </div>
-                        <div class="col-2 text-center">
+                        <div class="col-xs-2 col-xl-2 col-2 col-sm-1 text-center">
                             КОЛИЧЕСТВО
                         </div>
-                        <div class="col-3 text-center">
+                        <div class="col-xs-3 col-3 text-center">
                             СТАТУС
                         </div>
-                        <div class="col-1 text-center">
+                        <div class="col-xs-1 col-1 text-center">
                         </div>
                     </div>
                 </div>

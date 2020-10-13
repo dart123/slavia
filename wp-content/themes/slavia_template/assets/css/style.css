@@ -200,7 +200,7 @@ a:hover
 	background: transparent linear-gradient(90deg, #EF7F1B 0%, #FDC501 100%) 0% 0% no-repeat padding-box;
 	box-shadow: 0px 0px 10px #EF701B;
 	cursor:pointer;
-	color: #ffffff !important;	
+	color: #ffffff !important;
 }
 .btn-custom-one
 {
@@ -305,7 +305,7 @@ a:hover
 	margin: auto;
 	margin-bottom: 51px;
 }
-.burger-ico 
+.burger-ico
 {
 	margin-top: 22px;
 
@@ -511,9 +511,10 @@ a:hover
 {
 	border: none;
 	height: 62.6px;
-	background: #FFFFFF 0% 0% no-repeat padding-box;
-	border-radius: 4px;
-	background: #f7f9fb url(/wp-content/uploads/2019/12/menu_select.png) 100% 50% no-repeat;
+	/*background: #FFFFFF 0% 0% no-repeat padding-box;*/
+    border-radius: 14px !important;
+	background: #f7f9fb url(/wp-content/uploads/2019/12/menu_select.png) 95% 50% no-repeat !important;
+    padding: 0 15px;
 	-webkit-appearance: none;
 	border-right: none;
 	-moz-appearance: none;
@@ -530,7 +531,7 @@ a:hover
 	margin-top: 23px;
 	text-transform: uppercase;
 	color: #2E2A5C;
-	
+
 }
 .ex-mobile-h1-prizm
 {
@@ -736,7 +737,7 @@ a:hover
 	margin-left: 10px;
 	margin-top: -7px;
 }
-.profil-user-menu-item 
+.profil-user-menu-item
 {
 	padding-top: 16px;
 	color: #93A5CF;
@@ -753,7 +754,7 @@ a:hover
 	overflow: hidden;
 	/*outline:none;*/
 }
-.input-custom-copy 
+.input-custom-copy
 {
 	margin-top: 20px !important;
 }
@@ -947,7 +948,7 @@ a:hover
 		.desctop-icons
 		{
 			display: none !important;
-		} 
+		}
 		.index-registration
 		{
 			float: none !important;
@@ -965,7 +966,7 @@ a:hover
 		{
 			padding-right: 4%;
 		}
-		.select-exchange 
+		.select-exchange
 		{
 			padding-left: 30px;
 			padding-right: 30px;
@@ -1128,4 +1129,7 @@ form#personal_deposit input[type=checkbox]:disabled {
 }
 .deposit_type_page .deposit_row:not(:last-child) {
 	border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+}
+.anr_captcha_field > div > div {
+    margin: 0 auto;
 }

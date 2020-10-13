@@ -1,0 +1,366 @@
+refs: Array
+(
+    [63] => Array
+        (
+            [0] => Array
+                (
+                    [date] => 22.05.20 15:06:08
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ccc
+                    [ref_id] => 87
+                    [award_sum] => 0.07
+                    [award_currency] => Стандарт плутониевого металла
+                    [status] => processing
+                )
+
+            [1] => Array
+                (
+                    [date] => 22.05.20 15:06:13
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ccc
+                    [ref_id] => 87
+                    [award_sum] => 0.35
+                    [award_currency] => PRIZM
+                    [status] => paid
+                )
+
+            [2] => Array
+                (
+                    [date] => 22.05.20 15:06:24
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ccc
+                    [ref_id] => 87
+                    [award_sum] => 0.07
+                    [award_currency] => "Бетон-м450"_[м³]
+                    [status] => processing
+                )
+
+            [4] => Array
+                (
+                    [date] => 22.05.20 15:58:29
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ddd
+                    [ref_id] => 88
+                    [award_sum] => 0.42
+                    [award_currency] => PRIZM
+                    [status] => paid
+                )
+
+            [5] => Array
+                (
+                    [date] => 22.05.20 15:58:33
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ddd
+                    [ref_id] => 88
+                    [award_sum] => 0.7
+                    [award_currency] => PRIZM
+                    [status] => paid
+                )
+
+            [6] => Array
+                (
+                    [date] => 22.05.20 15:58:48
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [ref_name] => ddd
+                    [ref_id] => 88
+                    [award_sum] => 0.35
+                    [award_currency] => Сталь
+                    [status] => processing
+                )
+
+            [7] => Array
+                (
+                    [date] => 11.09.20 02:07:37
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [host_client_num] => 
+                    [ref_name] => ddd
+                    [ref_id] => 88
+                    [award_sum] => 0.1
+                    [award_currency] => Сталь тест
+                    [status] => processing
+                )
+
+            [8] => Array
+                (
+                    [date] => 11.09.20 03:06:32
+                    [host_name] => aaa
+                    [host_id] => 63
+                    [host_client_num] => 
+                    [ref_name] => ddd
+                    [ref_id] => 88
+                    [award_sum] => 0.05
+                    [award_currency] => Аляска. танкер 100тыс. тон. от пайщика №453
+                    [status] => processing
+                )
+
+        )
+
+    [84] => Array
+        (
+            [0] => Array
+                (
+                    [date] => 22.05.20 17:41:54
+                    [host_name] => Бодункова Ирина Ярославовна
+                    [host_id] => 84
+                    [ref_name] => zima zima zima
+                    [ref_id] => 89
+                    [award_sum] => 0
+                    [award_currency] => PRIZM
+                    [status] => paid
+                )
+
+            [1] => Array
+                (
+                    [date] => 22.05.20 17:48:36
+                    [host_name] => Бодункова Ирина Ярославовна
+                    [host_id] => 84
+                    [ref_name] => zima zima zima
+                    [ref_id] => 89
+                    [award_sum] => 0
+                    [award_currency] => Prizm
+                    [status] => processing
+                )
+
+            [2] => Array
+                (
+                    [date] => 05.09.20 18:11:45
+                    [host_name] => Бодункова Ирина Ярославовна
+                    [host_id] => 84
+                    [host_client_num] => 42
+                    [ref_name] => С.С.С
+                    [ref_id] => 200
+                    [award_sum] => 0.3
+                    [award_currency] => D350 3500₽/м3  Москва. пайщик №3
+                    [status] => paid
+                )
+
+        )
+
+    [87] => Array
+        (
+        )
+
+    [201] => Array
+        (
+            [0] => Array
+                (
+                    [date] => 05.09.20 19:14:49
+                    [host_name] => Тест
+                    [host_id] => 201
+                    [host_client_num] => 
+                    [ref_name] => Иляна Валерьевна Дарская
+                    [ref_id] => 203
+                    [award_sum] => 0
+                    [award_currency] => D500 625x250x500  1700₽/м3  Москва. пайщик №900
+                    [status] => processing
+                )
+
+        )
+
+    [24] => Array
+        (
+            [0] => Array
+                (
+                    [date] => 10.09.20 08:00:50
+                    [host_name] => Директор
+                    [host_id] => 24
+                    [host_client_num] => 3
+                    [ref_name] => ya7
+                    [ref_id] => 228
+                    [award_sum] => 0
+                    [award_currency] => SLAV
+                    [status] => processing
+                )
+
+            [1] => Array
+                (
+                    [date] => 30.09.20 11:51:20
+                    [host_name] => Директор
+                    [host_id] => 24
+                    [host_client_num] => 3
+                    [ref_name] => Купавская Светлана Николаевна
+                    [ref_id] => 234
+                    [award_sum] => 0
+                    [award_currency] => 
+                    [status] => processing
+                )
+
+        )
+
+)
+
+new ref: Array
+(
+    [0] => Array
+        (
+            [date] => 05.10.20 02:58:38
+            [host_name] => 
+            [host_id] => 203
+            [host_client_num] => 
+            [ref_name] => Нерек Ару Ру
+            [ref_id] => 204
+            [award_sum] => 0
+            [award_currency] => Ногинск Маникюр 1000₽ пайщик №487
+            [status] => processing
+        )
+
+)
+
+email: sergeyandreevich88@yandex.ru; text: <p>Пользователь Нерек Ару Ру с ID 204 только что совершил новую операцию.</p><p>Необходимо выплатить пригласившему его пользователю  с ID 203 вознаграждение в размере 0 Ногинск Маникюр 1000₽ пайщик №487 в соответствии с условиями реферальной программы.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: sivon59296@mailop7.com; text: <p>Пользователь Нерек Ару Ру с ID 204 только что совершил новую операцию.</p><p>Необходимо выплатить пригласившему его пользователю  с ID 203 вознаграждение в размере 0 Ногинск Маникюр 1000₽ пайщик №487 в соответствии с условиями реферальной программы.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: blablba@mail.ru; text: <p>Пользователь Нерек Ару Ру с ID 204 только что совершил новую операцию.</p><p>Необходимо выплатить пригласившему его пользователю  с ID 203 вознаграждение в размере 0 Ногинск Маникюр 1000₽ пайщик №487 в соответствии с условиями реферальной программы.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: ; text: <p>Приглашенный вами пользователь Нерек Ару Ру только что совершил новую операцию.</p><p>Вам причитается вознаграждение в размере 0 Ногинск Маникюр 1000₽ пайщик №487 в соответствии с условиями реферальной программы.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: avakseal@gmail.com; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: rylie lucero</p>
+    <p>Пароль: rylie lucero</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJyeWxpZSBsdWNlcm8iLCIyOGYwYjg2NDU5OGExMjkxNTU3YmVkMjQ4YTk5OGQ0ZSJd">http://pkslav.com/profile/?rcl-confirmdata=WyJyeWxpZSBsdWNlcm8iLCIyOGYwYjg2NDU5OGExMjkxNTU3YmVkMjQ4YTk5OGQ0ZSJd</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: magicgrace0305@gmail.com; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: Yulia0305</p>
+    <p>Пароль: Qumi@559</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJZdWxpYTAzMDUiLCIxNTQzODQzYTQ3MjNlZDJhYjA4ZTE4MDUzYWU2ZGM1YiJd">http://pkslav.com/profile/?rcl-confirmdata=WyJZdWxpYTAzMDUiLCIxNTQzODQzYTQ3MjNlZDJhYjA4ZTE4MDUzYWU2ZGM1YiJd</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: balakiny@gmail.com; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: balakiny</p>
+    <p>Пароль: t9rlipQtkscATwbXK9OM83</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJiYWxha2lueSIsImY4YzFmMjNkNmE4ZDhkNzkwNGZjMGVhOGUwNjZiM2JiIl0%3D">http://pkslav.com/profile/?rcl-confirmdata=WyJiYWxha2lueSIsImY4YzFmMjNkNmE4ZDhkNzkwNGZjMGVhOGUwNjZiM2JiIl0%3D</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: abegorillamonkey@yahoo.com; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: alena jennings</p>
+    <p>Пароль: alena jennings</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJhbGVuYSBqZW5uaW5ncyIsImU0NmRlN2UxYmNhYWNlZDlhNTRmMWU5ZDBkMmY4MDBkIl0%3D">http://pkslav.com/profile/?rcl-confirmdata=WyJhbGVuYSBqZW5uaW5ncyIsImU0NmRlN2UxYmNhYWNlZDlhNTRmMWU5ZDBkMmY4MDBkIl0%3D</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: jaliyahmichael.sc.27937096@mojorage.life; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: jaliyah michael</p>
+    <p>Пароль: jaliyah michael</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJqYWxpeWFoIG1pY2hhZWwiLCJiN2IxNmVjZjhjYTUzNzIzNTkzODk0MTE2MDcxNzAwYyJd">http://pkslav.com/profile/?rcl-confirmdata=WyJqYWxpeWFoIG1pY2hhZWwiLCJiN2IxNmVjZjhjYTUzNzIzNTkzODk0MTE2MDcxNzAwYyJd</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: carleywagner.sc.27937096@mojorage.life; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: carley wagner</p>
+    <p>Пароль: carley wagner</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJjYXJsZXkgd2FnbmVyIiwiMzUyZmUyNWRhZjY4NmJkYjRlZGNhMjIzYzkyMWFjZWEiXQ%3D%3D">http://pkslav.com/profile/?rcl-confirmdata=WyJjYXJsZXkgd2FnbmVyIiwiMzUyZmUyNWRhZjY4NmJkYjRlZGNhMjIzYzkyMWFjZWEiXQ%3D%3D</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+result: Array
+(
+    [acquiring] => 2.5
+    [site] => 
+    [slav] => 1
+    [prizm] => 5
+    [alt] => 7
+    [Бетон-м450_м³] => 3
+    [нефть Urals 1 барель] => 2
+    [Сталь] => 
+    [Bitcoin] => 
+    [Стандарт плутониевого металла] => 
+)
+
+result: Array
+(
+    [acquiring] => 2.5
+)
+
+email: magicgrace0305@gmail.com; text: <p>Ваш профиль был успешно верифицирован и теперь вы сможете совершать операции по обмену.</p><p>Перейдите на сайт pkslav.com, чтобы начать совершать операции.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: magicgrace0305@gmail.com; text: <p>Ваш профиль был успешно верифицирован и теперь вы сможете совершать операции по обмену.</p><p>Перейдите на сайт pkslav.com, чтобы начать совершать операции.</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: ppp@mail.ru; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: ppp</p>
+    <p>Пароль: ppp</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJwcHAiLCIxOGQ4MDQyMzg2Yjc5ZTJjMjc5ZmQxNjJkZjAyMDVjOCJd">http://pkslav.com/profile/?rcl-confirmdata=WyJwcHAiLCIxOGQ4MDQyMzg2Yjc5ZTJjMjc5ZmQxNjJkZjAyMDVjOCJd</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+
+email: ppp@mail.ru; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: ppp</p>
+    <p>Пароль: ppp</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJwcHAiLCI4MTZiMTEyYzYxMDViM2ViZDUzNzgyOGEzOWFmNDgxOCJd">http://pkslav.com/profile/?rcl-confirmdata=WyJwcHAiLCI4MTZiMTEyYzYxMDViM2ViZDUzNzgyOGEzOWFmNDgxOCJd</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+

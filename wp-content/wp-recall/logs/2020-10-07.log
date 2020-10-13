@@ -1,0 +1,29 @@
+ref exchange request: Array
+(
+    [input_sum] => 1
+    [input_currency] => Микроволновка Самсунг s/n 234234234 5000р. от пайщика 44
+    [output_sum] => 
+    [output_currency] => 
+    [is_public] => 
+    [is_reserve] => 1
+    [is_save] => 
+    [reserve_id] => 204
+    [requisites] => 
+    [date] => 07.10.20 07:58:58
+    [status] => approved_by_manager
+    [is_personal_deposit] => yes
+)
+
+creator_id: 308
+email: uzan@mail.ru; text: 
+    <p>Вы или кто то другой зарегистрировались на сайте "МПК СЛАВИЯ" со следующими данными:</p>
+    <p>Логин: uzan</p>
+    <p>Пароль: qwaszx</p><p>Если это были вы, то подтвердите свою регистрацию перейдя по ссылке ниже:</p>
+        <p><a href="http://pkslav.com/profile/?rcl-confirmdata=WyJ1emFuIiwiYmJmOTRiMzRlYjMyMjY4YWRhNTdhM2JlNTA2MmZlN2QiXQ%3D%3D">http://pkslav.com/profile/?rcl-confirmdata=WyJ1emFuIiwiYmJmOTRiMzRlYjMyMjY4YWRhNTdhM2JlNTA2MmZlN2QiXQ%3D%3D</a></p>
+        <p>Не получается активировать аккаунт?</p>
+        <p>Скопируйте текст ссылки ниже, вставьте его в адресную строку браузера и нажмите Enter</p><p>Если это были не вы, то просто проигнорируйте это письмо</p><p><small>-----------------------------------------------------<br/>
+    Это сообщение было сформировано автоматически, не надо отвечать на него.<br/>
+    "МПК СЛАВИЯ"</small></p>; headers: From: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Reply-To: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+Return-Path: МПК СЛАВИЯ <cms.pkslav@gmail.com>
+

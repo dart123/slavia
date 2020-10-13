@@ -1147,19 +1147,19 @@ function rcl_tab_operations_content($master_id)
                                         <div class="col-2 text-center">'.
                                             $value['date'].
                                         '</div>
-                                        
+
                                         <div class="col-2 text-center">'.
                                             $value['input_sum'].' '.$value['input_currency'].
                                         '</div>
-                                        
+
                                         <div class="col-2 text-center">'.
                                             $value['output_currency'].
                                         '</div>
-                                        
+
                                         <div class="col-2 text-center">'.
                                             $output_sum_to_print.' '.$output_currency_to_print.
                                         '</div>';
-                                        
+
 //                                        <div class="col-2 text-center" style="visibility: hidden">
 //                                            0.9188 PZM
 //                                        </div>';
@@ -1185,7 +1185,7 @@ function rcl_tab_operations_content($master_id)
                                                     },
                                                     function(order) { successCallback(order, event, ' . $user_ID . ', ' . $key . ') },
                                                     function(order) { failureCallback(order, event, ' . $user_ID . ', ' . $key . ') })"
-                                                     
+
                                                 class="btn-custom-one" style="display: inline-block;">Оплатить
                                                 </a>' .
                         //                                        </div>
@@ -1216,7 +1216,7 @@ function rcl_tab_operations_content($master_id)
                                                         },
                                                         function(order) { successCallback(order, event, ' . $user_ID . ', ' . $key . ') },
                                                         function(order) { failureCallback(order, event, ' . $user_ID . ', ' . $key . ') })"
-                                                         
+
                                                         class="btn-custom-one" style="display: inline-block;">Оплатить
                                                     </a>' .
                         '</div>';
@@ -1246,7 +1246,8 @@ function rcl_tab_operations_content($master_id)
             //Кнопка удаления
             $exchange_content .= '<div class="col-1 text-left">
                                        <a class="remove_operation" data-user_id="'.$user_ID.'" data-request_num="'.$key.'">&times;</a>
-                                  </div>
+                                       '.'<span style="display: none">' . $value['status'].'</span>
+                </div>
                                 </div>
                             </div>';
         }
@@ -1451,15 +1452,15 @@ function rcl_tab_requests_content($master_id)
                                                     <div class="col-2 text-left" style="padding-left: 42px;">' .
                                                         $user_verification['name'] . ' ' . $user_verification['surname'] . ' ' . $user_verification['last_name'] .
                                                     '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                                         get_user_meta($user, 'client_num', true) .
                                                     '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                                         $currency_to_print .
                                                     '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                                         $sum_to_print .
                                                         '<img src="/wp-content/uploads/2019/12/info.png" class="info-zayavki">
@@ -1792,9 +1793,10 @@ function get_reserved_operations($user_id)
             if ($user != $user_id && !empty($requests) && isset($requests))
                 foreach ($requests as $request_num => $value)
                 {
-                    if (isset($value['is_reserve']) && $value['is_reserve'] &&
-                        isset($value['reserve_id']) && $value['reserve_id'] &&
-                        $value['reserve_id'] == $user_id) {
+                    if ( ((isset($value['is_reserve']) && $value['is_reserve']) ||
+                         (isset($value['other_payment']) && $value['other_payment'])) &&
+                         (isset($value['reserve_id']) && $value['reserve_id'] && $value['reserve_id'] == $user_id))
+                    {
                             if (!isset($result[$user]))
                                 $result[$user] = array($request_num => $value);
                             else
@@ -1822,7 +1824,16 @@ function show_reserved_operations($requests, $is_return = false)
 
                 foreach ($requests as $request_num => $value) {
                     $status = $value['status'];
-                    if ($status == 'personal_deposit')
+                    $is_other_payment = (isset($value['other_payment']) && $value['other_payment']);
+                    if ($is_other_payment) {
+                        $currency_to_show = '<span style="color: red">Забирает:</span> ' . $value['output_currency'];
+                        $sum_to_show = $value['output_sum'];
+                    }
+                    else {
+                        $currency_to_show = '<span style="color: red">Отдает:</span> ' . $value['input_currency'];
+                        $sum_to_show =  $value['input_sum'];
+                    }
+                    if ($status == 'personal_deposit' || ($is_other_payment && $status == 'awaiting_payment') )
                         $status_to_show = '<p style="color: #EF701B">Ожидается подтверждение менеджером</p>';
                     elseif ($status == 'approved_by_manager')
                         $status_to_show = '<div class="btn-custom-one approve_by_user" data-request_num="' . $request_num .
@@ -1830,6 +1841,8 @@ function show_reserved_operations($requests, $is_return = false)
                                             </div>';
                     elseif ($status == 'approved_by_user')
                         $status_to_show = '<p style="color: green">Получение подтверждено</p>';
+                    elseif ($is_other_payment && $status == 'completed')
+                        $status_to_show = '<p style="color: green">Подтверждено менеджером</p>';
 
                     $exchange_content .= '<div class="table-text w-100">
                                             <div class="row">
@@ -1841,12 +1854,12 @@ function show_reserved_operations($requests, $is_return = false)
                                                     $user_verification['surname'] . ' ' .
                                                     $user_verification['last_name'] .
                                                 '</div>
-               
-                                                 <div class="col-2 text-center">' .
-                                                    $value['input_currency'] .
+
+                                                 <div class="col-xs-2 col-xl-2 col-sm-3 col-2 text-center">' .
+                                                    $currency_to_show .
                                                 '</div>
-                                                <div class="col-2 text-center">' .
-                                                    $value['input_sum'] .
+                                                <div class="col-xs-2 col-xl-2 col-sm-1 col-2 text-center">' .
+                                                    $sum_to_show .
                                                 '</div>';
                     $exchange_content .= '<div class="col-3 text-center">' .
                                             $status_to_show .
@@ -1862,6 +1875,7 @@ function show_reserved_operations($requests, $is_return = false)
     else
         echo $exchange_content;
 }
+
 
 if (!function_exists('array_key_first')) {
     function array_key_first(array $arr) {
@@ -1979,6 +1993,31 @@ function get_client_nums()
     return $user_arr;
 }
 
+function get_personal_deposit_sender($currency, $reserve_id)
+{
+    $exchange_requests = rcl_get_option('exchange_requests');
+
+    $result = array();
+
+    if (isset($exchange_requests) && !empty($exchange_requests))
+    {
+        foreach ($exchange_requests as $user => $requests)
+        {
+            if ($user != $reserve_id && !empty($requests) && isset($requests))
+                foreach ($requests as $request_num => $value)
+                {
+                    if ( isset($value['is_reserve']) && $value['is_reserve'] &&
+                        isset($value['reserve_id']) && $value['reserve_id'] && $value['reserve_id'] == $reserve_id &&
+                        isset($value['input_currency']) && $value['input_currency'] == $currency)
+                    {
+                        return $user;
+                    }
+                }
+        }
+    }
+    return false;
+}
+
 function save_exchange_request($input_currency, $input_sum, $output_currency = false, $output_sum = false, $bank = false, $card_num = false, $card_name = false)
 {
     global $user_ID;
@@ -2076,6 +2115,22 @@ function save_exchange_request_other(
     else {
         $exchange_fields += array('deposit_type' => $deposit_type);
         $exchange_fields += array('status' => 'deposit_other');
+    }
+
+    if (!empty($exchange_fields['output_currency']) ) {
+//        $reserve_id = find_currency_rate_by_name($exchange_fields['output_currency'], true, 'asset_reserve');
+        $log = new Rcl_Log();
+//        //$log->insert_log("new find_currency_rate: reserve id: ".print_r($reserve_id, true));
+//        $reserve_id = $reserve_id['asset_reserve'];
+//        if ($reserve_id !== 'none' && $reserve_id !== 'public' && $reserve_id > 0)
+//        {
+        $exchange_fields += array('other_payment' => true);
+        $creator_id = find_currency_rate_by_name($exchange_fields['output_currency'], true, 'asset_creator');
+        $creator_id = $creator_id['asset_creator'];
+//            $sender_id = get_personal_deposit_sender($exchange_fields['output_currency'], $reserve_id);
+        $log->insert_log("creator_id: ".$creator_id);
+        $exchange_fields += array('reserve_id' => $creator_id);
+//        }
     }
 
     if (isset($exchange_requests) && !empty($exchange_requests))
@@ -2311,9 +2366,11 @@ function find_currency_by_name($name, $selector = 'asset_inputs')
     }
     return false;
 }
-function find_currency_rate_by_name($currency_name, $is_out = false)
+//additional_field - название доп поля, если нужно вернуть (допустимые значения: asset_name, asset_requisites (если входная валюта), asset_reserve, asset_creator)
+function find_currency_rate_by_name($currency_name, $is_out = false, $additional_field = false)
 {
     $log = new Rcl_Log();
+    $possible_additional_field = array('asset_name', 'asset_requisites', 'asset_reserve', 'asset_creator');
     mb_internal_encoding('UTF-8');
     //$log->insert_log("currency name:".$currency_name);
     //$log->insert_log("is_out: ".$is_out);
@@ -2345,7 +2402,13 @@ function find_currency_rate_by_name($currency_name, $is_out = false)
 
                 if (mb_strtolower($asset_name) == mb_strtolower($currency_name)) {
                     //$result = array($selector, $i, 'asset_types');
-                    return $asset_rate;
+                    if ($additional_field == false)
+                        return $asset_rate;
+                    elseif (in_array($additional_field, $possible_additional_field) )
+                        return array(
+                            "asset_rate_rubles" => $asset_rate,
+                            $additional_field => get_sub_field($additional_field)
+                        );
                 }
                 //Проходиммся по вложенным валютам если они есть (второй уровень вложенности)
                 if (have_rows('asset_types')) {
@@ -2361,7 +2424,13 @@ function find_currency_rate_by_name($currency_name, $is_out = false)
 
                         if (mb_strtolower($asset_name_2) == mb_strtolower($currency_name)) {
                             //$result = array($selector, $i, 'asset_types');
-                            return $asset_rate_2;
+                            if ($additional_field == false)
+                                return $asset_rate_2;
+                            elseif (in_array($additional_field, $possible_additional_field) )
+                                return array(
+                                    "asset_rate_rubles" => $asset_rate_2,
+                                    $additional_field => get_sub_field($additional_field)
+                                );
                         }
                         //третий уровень вложенности
                         if (have_rows('asset_types_2')) {
@@ -2377,7 +2446,13 @@ function find_currency_rate_by_name($currency_name, $is_out = false)
 
                                 if (mb_strtolower($asset_name_3) == mb_strtolower($currency_name)) {
                                     //$result = array($selector, $i, 'asset_types');
-                                    return $asset_rate_3;
+                                    if ($additional_field == false)
+                                        return $asset_rate_3;
+                                    elseif (in_array($additional_field, $possible_additional_field) )
+                                        return array(
+                                            "asset_rate_rubles" => $asset_rate_3,
+                                            $additional_field => get_sub_field($additional_field)
+                                        );
                                 }
                             }
                         }
@@ -2844,6 +2919,7 @@ function rcl_edit_profile(){
 
                         $profileFields = rcl_get_profile_fields(array('user_id' => $userid));
 
+                        $log->insert_log("ref exchange request: " . print_r($exchange_requests[$userid][$request_num], true));
 
                         //Если есть пригласивший
                         if (!empty($ref_host) && !isset($exchange_requests[$userid][$request_num]['deposit_type']) &&
@@ -3023,15 +3099,15 @@ function rcl_edit_profile(){
                                                         <div class="col-2 text-center">' .
                                                 $value['date'] .
                                                 '</div>
-                                        
+
                                                         <div class="col-2 text-center">' .
                                                 $value['input_currency'] .
                                                 '</div>
-                                                        
+
                                                         <div class="col-2 text-center">' .
                                                 $value['output_currency'] .
                                                 '</div>
-                                                        
+
                                                         <div class="col-2 text-center">' .
                                                 $value['output_sum'] . ' ' . $value['output_currency'] .
                                                 '</div>';
@@ -3694,7 +3770,8 @@ function rcl_edit_profile(){
                             'asset_name' => $exchange['input_currency'],
                             'asset_requisites' => '',
                             'asset_rate_rubles' => $exchange['rate'],
-                            'asset_types' => ''
+                            'asset_types' => '',
+                            'asset_creator' => get_current_user_id()
                         );
                         if (isset($exchange['is_reserve']) && $exchange['is_reserve'] == 'on' &&
                             isset($exchange['reserve_id']) && $exchange['reserve_id'] > 0)
@@ -4091,15 +4168,15 @@ function filter_data($filter_type, $datatype, $filter_val, $operation_tab = fals
                                                     <div class="col-2 text-left" style="padding-left: 42px;">' .
                                         $user_verification['name'] . ' ' . $user_verification['surname'] . ' ' . $user_verification['last_name'] .
                                         '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                         get_user_meta($user, 'client_num', true) .
                                         '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                         $currency_to_print .
                                         '</div>
-                                                    
+
                                                     <div class="col-2 text-left">' .
                                         $sum_to_print .
                                         '<img src="/wp-content/uploads/2019/12/info.png" class="info-zayavki">
@@ -4268,15 +4345,15 @@ function filter_data($filter_type, $datatype, $filter_val, $operation_tab = fals
                                         <div class="col-2 text-center">' .
                             $value['date'] .
                             '</div>
-                                        
+
                                         <div class="col-2 text-center">' .
                             $value['input_sum'] . ' ' . $value['input_currency'] .
                             '</div>
-                                        
+
                                         <div class="col-2 text-center">' .
                             $value['output_currency'] .
                             '</div>
-                                        
+
                                         <div class="col-2 text-center">' .
                             $output_sum_to_print . ' ' . $output_currency_to_print .
                             '</div>';
@@ -4305,7 +4382,7 @@ function filter_data($filter_type, $datatype, $filter_val, $operation_tab = fals
                                                 },
                                                 function(order) { successCallback(order, event, ' . $user_ID . ', ' . $key . ') },
                                                 function(order) { failureCallback(order, event, ' . $user_ID . ', ' . $key . ') })"
-                                                 
+
                                             class="btn-custom-one" style="display: inline-block;">Оплатить
                                             </a>' .
 //                                        </div>
@@ -4329,7 +4406,7 @@ function filter_data($filter_type, $datatype, $filter_val, $operation_tab = fals
                                                         },
                                                         function(order) { successCallback(order, event, ' . $user_ID . ', ' . $key . ') },
                                                         function(order) { failureCallback(order, event, ' . $user_ID . ', ' . $key . ') })"
-                                                         
+
                                                         class="btn-custom-one" style="display: inline-block;">Оплатить
                                                     </a>' .
                                     '</div>';
@@ -4397,15 +4474,15 @@ function filter_data($filter_type, $datatype, $filter_val, $operation_tab = fals
                     $document_content .= '<div class="table-text w-100">
                                             <div class="row">
                                                 <div class="col-2 text-center">'.$document['date'].'</div>
-                
+
                                                 <div class="col-8 text-left">'.$document['filename'].'</div>
-                                                
+
                                                 <div class="col-2 text-center">
                                                     <a href="'. $document['url'] .'" download>
                                                         <img src="/wp-content/uploads/2019/12/don.png">
                                                     </a>
                                                 </div>
-                                                
+
                                             </div>
                                           </div>';
                 } //foreach
@@ -4768,14 +4845,14 @@ function add_stats($userid, $input_currency, $input_sum, $output_currency, $outp
     $rub_currency = is_rub_row($input_currency, $output_currency);
 
     if (!empty($input_currency)) {
-        $log->insert_log("find_currency_rate_by_name call from: add_stats - input");
+        //$log->insert_log("find_currency_rate_by_name call from: add_stats - input");
         $input_rate = find_currency_rate_by_name($input_currency);
     }
     else
         $input_rate = 0;
 
     if (!empty($output_currency)) {
-        $log->insert_log("find_currency_rate_by_name call from: add_stats - output");
+        //$log->insert_log("find_currency_rate_by_name call from: add_stats - output");
         $output_rate = find_currency_rate_by_name($output_currency, true);
     }
     else
@@ -5011,8 +5088,11 @@ function get_all_currencies()
         $is_same = false;
         foreach ($currencies as $currency)
         {
-            if ((mb_strtolower($asset_output['asset_name']) == mb_strtolower($currency['asset_name'])) ||
-                (is_rub($asset_output['asset_name']) && is_rub($currency['asset_name']) ) )
+            $string1 = mb_strtolower($asset_output['asset_name']);
+            $string2 = mb_strtolower($currency['asset_name']);
+            if (($string1 == $string2) || (strpos($string1, $string2) !== false) ||
+                (strpos($string2, $string1) !== false) ||
+                (is_rub($string1) && is_rub($string2)) )
             {
                 $is_same = true;
                 break;
@@ -5118,12 +5198,12 @@ function print_nested_assets($assets, $is_out_asset = false, $is_section = false
                 <?php
                 if (empty($asset) || count($asset) == 0 || $asset['asset_reserve'] != 'public')
                 {
-                    if (empty($asset_type) || count($asset_type) == 0)
+                    if (empty($asset) || count($asset) == 0)
                         continue;
                     elseif (($asset['asset_reserve'] != 'public' && $asset['asset_reserve'] != 'none' &&
                         get_current_user_id() != $asset['asset_reserve'] ))
                             continue;
-                    elseif ($asset_type['asset_reserve'] == 'none')
+                    elseif ($asset['asset_reserve'] == 'none')
                         continue;
                 }
 
@@ -5134,7 +5214,7 @@ function print_nested_assets($assets, $is_out_asset = false, $is_section = false
 
                 ?>
                 <li>
-                    <a data-percent="" data-rate="<?=$asset_info['rate']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$asset_info['requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($asset_info['name'], ENT_QUOTES, 'UTF-8')?>"><?=$asset_info['name']?></a>
+                    <a data-percent="" data-creator="<?=$asset['asset_creator']?>" data-rate="<?=$asset_info['rate']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$asset_info['requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($asset_info['name'], ENT_QUOTES, 'UTF-8')?>"><?=$asset_info['name']?></a>
                     <?php if (!empty($asset['asset_types'])): ?>
                         <ul>
                         <?php foreach($asset['asset_types'] as $asset_type): ?>
@@ -5155,12 +5235,24 @@ function print_nested_assets($assets, $is_out_asset = false, $is_section = false
                             ?>
 
                             <li>
-                                <a data-percent="" data-rate="<?=$asset_info_2['rate']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$asset_info_2['requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($asset_info_2['name'], ENT_QUOTES, 'UTF-8')?>"><?=$asset_info_2['name']?></a>
+                                <a data-percent="" data-creator="<?=$asset_type['asset_creator']?>" data-rate="<?=$asset_info_2['rate']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$asset_info_2['requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($asset_info_2['name'], ENT_QUOTES, 'UTF-8')?>"><?=$asset_info_2['name']?></a>
                                 <?php if (!empty($asset_type['asset_types_2']) && !$is_section): ?>
                                     <ul>
                                         <?php foreach($asset_type['asset_types_2'] as $subtype): ?>
+                                        <?php
+                                            if (empty($subtype) || count($subtype) == 0 || $subtype['asset_reserve'] != 'public')
+                                            {
+                                                if (empty($subtype) || count($subtype) == 0)
+                                                    continue;
+                                                elseif (($subtype['asset_reserve'] != 'public' && $subtype['asset_reserve'] != 'none' &&
+                                                        get_current_user_id() != $subtype['asset_reserve'] ))
+                                                    continue;
+                                                elseif ($subtype['asset_reserve'] == 'none')
+                                                    continue;
+                                            }
+                                        ?>
                                         <li>
-                                            <a data-percent="" data-rate="<?=$subtype['asset_rate_rubles']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$subtype['asset_requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($subtype['asset_name'], ENT_QUOTES, 'UTF-8')?>"><?=$subtype['asset_name']?></a>
+                                            <a data-percent="" data-creator="<?=$subtype['asset_creator']?>" data-rate="<?=$subtype['asset_rate_rubles']?>"<?php if (!$is_out_asset): ?> data-requisites="<?=$subtype['asset_requisites']?>"<?php endif; ?> data-value="<?=htmlspecialchars($subtype['asset_name'], ENT_QUOTES, 'UTF-8')?>"><?=$subtype['asset_name']?></a>
                                         </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -5211,17 +5303,17 @@ function get_rub_sum_by_dates($userid, $start_date, $end_date, $all_refs = false
                 $request_time = strtotime($month . '/' . $day . '/' . $year);
                 $new_date = date('d.m.y', $request_time);
 
-                $log->insert_log("request value: ".print_r($request_value, true));
+                //$log->insert_log("request value: ".print_r($request_value, true));
 
                 //$date_value = str_replace('.', '/', $request_value['date']);
                 if (isset($request_value['date']) && isset($new_date) && ($new_date >= $start_filter && $new_date <= $end_filter) &&
                     $request_value['status'] == 'completed')
                 {
 
-                    $log->insert_log("find_currency_rate_by_name call from: get_rub_sum_by_dates");
+                    //$log->insert_log("find_currency_rate_by_name call from: get_rub_sum_by_dates");
 
                     $input_currency_rate = find_currency_rate_by_name($request_value['input_currency']);
-                    $log->insert_log("input currency: ".$request_value['input_currency']."; currency rate: ".$input_currency_rate);
+                    //$log->insert_log("input currency: ".$request_value['input_currency']."; currency rate: ".$input_currency_rate);
                     if (!$input_currency_rate)
                         $input_currency_rate = 0;
 //                    if (!$input_currency_rate) {
@@ -5231,8 +5323,8 @@ function get_rub_sum_by_dates($userid, $start_date, $end_date, $all_refs = false
                     //}
 
                     if ($all_refs) {
-                        $log->insert_log("request_value: " . print_r($request_value, true));
-                        $log->insert_log("input_rate: ".print_r($input_currency_rate, true));
+                        //$log->insert_log("request_value: " . print_r($request_value, true));
+                        //$log->insert_log("input_rate: ".print_r($input_currency_rate, true));
                     }
                     $sum += $input_currency_rate * $request_value['input_sum'];
                 }

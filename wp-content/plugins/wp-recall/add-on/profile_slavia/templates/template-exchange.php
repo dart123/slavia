@@ -1787,7 +1787,7 @@ if ($slav_to_rub == 0)
             let sum = amount * rate;
             jQuery('form#personal_deposit input#personal_deposit_result_sum').val(sum);
         });
-    
+
 
     jQuery('form#other_deposit select.deposit_type').change(function() {
         let data = {

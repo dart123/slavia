@@ -1,4 +1,4 @@
-const DEFAULT_REQUISITE = '3PAM1XRQG4cpvh15evZenJWvXBAcTcC2jjt';
+const DEFAULT_REQUISITE = '3PADGNfUyZ1CiQ22wjAcj6svKQvjJC7TdeJ';
 
 function request_get_user_id(el)
 {
@@ -293,7 +293,13 @@ function click_nested_menu_link(link_el)
         let currency_el = link_el.parents('.menu-list').siblings('input[type=hidden]');
         if (form_id !== 'personal_deposit') {
             currency_el.val('');
-            link_el.parents('.menu-list').siblings('.nested_menu').children('.menu_link').text('Вид вносимого имущества');
+            let is_out_currency = currency_el.hasClass('output_currency');
+            let default_text = '';
+            if (!is_out_currency)
+                default_text = 'Вид вносимого имущества';
+            else
+                default_text = 'Вид желаемого имущества';
+            link_el.parents('.menu-list').siblings('.nested_menu').children('.menu_link').text(default_text);
         }
         else {
             currency_el.val(link_el.attr('data-value'));

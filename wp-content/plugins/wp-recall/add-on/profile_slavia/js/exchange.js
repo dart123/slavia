@@ -201,7 +201,7 @@ function other_payments_is_output_currency(el) {
 function change_requisites(currency_el, requisite_el, requisite_val = '')
 {
     let requisites = currency_el.attr('data-requisites');
-    console.log(requisites);
+    //console.log(requisites);
     if (requisites.length === 0)
         requisites = DEFAULT_REQUISITE;
     if (typeof requisite_el !== 'undefined')
@@ -231,6 +231,12 @@ function open_nested_menu(el)
 }
 function click_nested_menu_link(link_el)
 {
+    let is_mobile = link_el.parents('.ex-mob-pd').length > 0;
+    if (is_mobile) {
+        link_el.parents('.menu-list').find('a').css('background', 'unset');
+        link_el.css('background', '#EF701B');
+    }
+
     link_el.parents('.menu-list').find('a').removeClass('active');
     //jQuery('.menu-list a').removeClass('active');
 
@@ -252,6 +258,7 @@ function click_nested_menu_link(link_el)
             //Иные взносы input_currency
             if (!is_output_currency) {
                 let input_currency_el = link_el.parents('.menu-list').siblings('input.other_payments.input_currency');
+                //console.log(input_currency_el);
                 input_currency_el.val(link_el.attr('data-value'));
 
                 change_requisites(link_el, jQuery('form.other_payments select.other_payments.requisites'));
@@ -261,6 +268,7 @@ function click_nested_menu_link(link_el)
             else
             {
                 let output_currency_el = link_el.parents('.menu-list').siblings('input.other_payments.output_currency');
+                //console.log(output_currency_el);
                 output_currency_el.val(link_el.attr('data-value'));
                 other_payment_output_currency_change(link_el);
             }
@@ -291,6 +299,7 @@ function click_nested_menu_link(link_el)
 
     else {
         let currency_el = link_el.parents('.menu-list').siblings('input[type=hidden]');
+        //console.log("not last");
         if (form_id !== 'personal_deposit') {
             currency_el.val('');
             let is_out_currency = currency_el.hasClass('output_currency');

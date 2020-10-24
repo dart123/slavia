@@ -755,44 +755,44 @@ if ($slav_to_rub == 0)
 <!-- Тело главной страницы mobile -->
 <div class="col-md-12 d-lg-none"  style="z-index: 4; /*margin-top: 10px;*/">
     <div class="row">
-        <div class="coop_maps question-bg col-lg-12 ex-mob-pd" style="">
-            <div class="click_ex" id="one-ex">
-                <div class="ex-header">
-                    <h1 class="coop_maps-h1 ib">Имущественный взнос SLAV</h1>
-                    <img src="/wp-content/uploads/2019/12/close.png" class="close_ex ib">
-                </div>
-
-                <form class="tab-ex" action="" method="post" enctype="multipart/form-data" name="exchange_mob">
-                    <div class="col-12 pryamougolnik">
-                        <p>Для получения рубля необходимо отправить монеты на следующий адрес:</p>
-                        <h3>PRIZM-AWTX-HDBX-ADDH-7SMM7</h3>
-                        <button class="btn-custom-two  text-center">Отправить</button>
-                    </div>
-                    <div class="col-lg-12">
-                        <?php if (isset($slav_text) && !empty($slav_text))
-                            echo '<p class="exchange_deposit_text">'.$slav_text.'</p>'; ?>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-lg-12" style="margin-top:20px;">
-                                <div class="row input-exchange" style="margin-top: 0px">
-                                    <span>Количество монет SLAV</span>
-
-                                    <input type="hidden" value="SLAV" name="exchange[input_currency]">
-
-                                    <input required placeholder="0" type="text" class="" name="exchange[input_sum]">
-                                </div>
-
-                                <div class="row">
-                                    <input class="btn-custom-one exchange-pd get-rubles text-center" type="submit" name="" value="Отправить">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+<!--        <div class="coop_maps question-bg col-lg-12 ex-mob-pd" style="">-->
+<!--            <div class="click_ex" id="one-ex">-->
+<!--                <div class="ex-header">-->
+<!--                    <h1 class="coop_maps-h1 ib">Имущественный взнос SLAV</h1>-->
+<!--                    <img src="/wp-content/uploads/2019/12/close.png" class="close_ex ib">-->
+<!--                </div>-->
+<!---->
+<!--                <form class="tab-ex" action="" method="post" enctype="multipart/form-data" name="exchange_mob">-->
+<!--                    <div class="col-12 pryamougolnik">-->
+<!--                        <p>Для получения рубля необходимо отправить монеты на следующий адрес:</p>-->
+<!--                        <h3>PRIZM-AWTX-HDBX-ADDH-7SMM7</h3>-->
+<!--                        <button class="btn-custom-two  text-center">Отправить</button>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-12">-->
+<!--                        --><?php //if (isset($slav_text) && !empty($slav_text))
+//                            echo '<p class="exchange_deposit_text">'.$slav_text.'</p>'; ?>
+<!--                    </div>-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-lg-12" style="margin-top:20px;">-->
+<!--                                <div class="row input-exchange" style="margin-top: 0px">-->
+<!--                                    <span>Количество монет SLAV</span>-->
+<!---->
+<!--                                    <input type="hidden" value="SLAV" name="exchange[input_currency]">-->
+<!---->
+<!--                                    <input required placeholder="0" type="text" class="" name="exchange[input_sum]">-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="row">-->
+<!--                                    <input class="btn-custom-one exchange-pd get-rubles text-center" type="submit" name="" value="Отправить">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
         <div class="coop_maps question-bg col-lg-12 ex-mob-pd">
             <div class="click_ex" id="two-ex">
                 <div class="ex-header">
@@ -1116,25 +1116,32 @@ if ($slav_to_rub == 0)
                     <h1 class="coop_maps-h1 ib">Иной паевой взнос</h1>
                     <img src="/wp-content/uploads/2019/12/close.png" class="close_ex ib">
                 </div>
-                <form class="tab-ex other_payments" action="" method="post" enctype="multipart/form-data" name="other_payments">
+                <form class="tab-ex other_payments" id="other_payments" action="" method="post" enctype="multipart/form-data" name="other_payments">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-lg-12 input-exchange">
                                 <div class="row">
                                     <div class="select-exchange w-100">
-                                        <select required class="other_payments input_currency" name="exchange[input_currency]">
-                                            <option disabled selected>Вид вносимого имущества</option>
-                                            <?php if (isset($asset_inputs) && !empty($asset_inputs)): ?>
-                                                <?php foreach ($asset_inputs as $asset_input): ?>
-                                                    <option data-rate="<?=$asset_input['asset_rate_rubles']?>" data-requisites="<?=$asset_input['asset_requisites']?>" value="<?=$asset_input['asset_name']?>"><?=$asset_input['asset_name']?></option>
-                                                <?php endforeach;?>
-                                            <?php endif; ?>
-                                        </select>
+                                        <input type="hidden" class="other_payments input_currency" name="exchange[input_currency]">
+
+                                        <div class="nested_menu">
+                                            <a class="menu_link">Вид вносимого имущества</a>
+                                        </div>
+
+                                        <?php print_nested_assets($asset_inputs); ?>
+<!--                                        <select required class="other_payments input_currency" name="exchange[input_currency]">-->
+<!--                                            <option disabled selected>Вид вносимого имущества</option>-->
+<!--                                            --><?php //if (isset($asset_inputs) && !empty($asset_inputs)): ?>
+<!--                                                --><?php //foreach ($asset_inputs as $asset_input): ?>
+<!--                                                    <option data-rate="--><?//=$asset_input['asset_rate_rubles']?><!--" data-requisites="--><?//=$asset_input['asset_requisites']?><!--" value="--><?//=$asset_input['asset_name']?><!--">--><?//=$asset_input['asset_name']?><!--</option>-->
+<!--                                                --><?php //endforeach;?>
+<!--                                            --><?php //endif; ?>
+<!--                                        </select>-->
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 input-exchange">
+                            <div class="col-lg-12 input-exchange">
                                 <div class="row">
                                     <span class="select-exchange">Количество</span>
 
@@ -1146,16 +1153,21 @@ if ($slav_to_rub == 0)
 
                             <div class="col-lg-12 input-exchange">
                                 <div class="row">
-                                    <div class="select-exchange w-100">
+                                    <div class="select-exchange w-100" style="margin: 10% 0;">
                                         <!--                                <span class="select-exchange">Вид желаемого имущества</span>-->
-                                        <select class="other_payments output_currency" name="exchange[output_currency]">
-                                            <option disabled selected>Вид желаемого имущества</option>
-                                            <?php if (isset($asset_outputs) && !empty($asset_outputs)): ?>
-                                                <?php foreach ($asset_outputs as $asset_output): ?>
-                                                    <option data-rate="<?=$asset_output['asset_rate_rubles']?>" value="<?=$asset_output['asset_name']?>"><?=$asset_output['asset_name']?></option>
-                                                <?php endforeach;?>
-                                            <?php endif; ?>
-                                        </select>
+<!--                                        <select class="other_payments output_currency" name="exchange[output_currency]">-->
+<!--                                            <option disabled selected>Вид желаемого имущества</option>-->
+<!--                                            --><?php //if (isset($asset_outputs) && !empty($asset_outputs)): ?>
+<!--                                                --><?php //foreach ($asset_outputs as $asset_output): ?>
+<!--                                                    <option data-rate="--><?//=$asset_output['asset_rate_rubles']?><!--" value="--><?//=$asset_output['asset_name']?><!--">--><?//=$asset_output['asset_name']?><!--</option>-->
+<!--                                                --><?php //endforeach;?>
+<!--                                            --><?php //endif; ?>
+<!--                                        </select>-->
+                                        <input type="hidden" class="other_payments output_currency" name="exchange[output_currency]">
+                                        <div class="nested_menu">
+                                            <a class="menu_link">Вид желаемого имущества</a>
+                                        </div>
+                                        <?php print_nested_assets($asset_outputs, true); ?>
                                     </div>
                                 </div>
                             </div>
@@ -1226,19 +1238,35 @@ if ($slav_to_rub == 0)
                     <h1 class="coop_maps-h1 ib">Целевой взнос</h1>
                     <img src="/wp-content/uploads/2019/12/close.png" class="close_ex ib">
                 </div>
-                <form class="tab-ex other_deposit" action="" method="post" enctype="multipart/form-data" name="other_deposit">
+                <form class="tab-ex other_deposit" id="other_deposit" action="" method="post" enctype="multipart/form-data" name="other_deposit">
                     <div class="col-12">
                         <div class="row">
                             <div class="col-lg-12 input-exchange">
                                 <div class="row">
                                     <div class="select-exchange w-100">
-                                        <select required class="other_deposit input_currency" name="exchange[input_currency]">
-                                            <option disabled selected>Вид вносимого имущества</option>
-                                            <?php if (isset($asset_inputs) && !empty($asset_inputs)): ?>
-                                                <?php foreach ($asset_inputs as $asset_input): ?>
-                                                    <option data-rate="<?=$asset_input['asset_rate_rubles']?>" data-requisites="<?=$asset_input['asset_requisites']?>" value="<?=$asset_input['asset_name']?>"><?=$asset_input['asset_name']?></option>
+                                        <!--                                <span class="select-exchange">Вид желаемого имущества</span>-->
+                                        <select required class="other_deposit deposit_type" name="exchange[deposit_type]">
+                                            <option disabled selected>Вид целевой программы</option>
+                                            <?php if (isset($deposits) && !empty($deposits)): ?>
+                                                <?php foreach (array_keys($deposits) as $deposit_name): ?>
+                                                    <option value="<?=$deposit_name?>"><?=$deposit_name?></option>
                                                 <?php endforeach;?>
                                             <?php endif; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 input-exchange">
+                                <div class="row">
+                                    <div class="select-exchange w-100">
+                                        <select required class="other_deposit input_currency" name="exchange[input_currency]" placeholder="Вид вносимого имущества">
+                                            <option selected disabled value="">Вид вносимого имущества</option>
+                                            <!----><?php //if (isset($asset_inputs) && !empty($asset_inputs)): ?>
+                                            <!----><?php //foreach ($asset_inputs as $asset_input): ?>
+                                            <!--<option data-rate="--><?//=$asset_input['asset_rate_rubles']?><!--" data-requisites="--><?//=$asset_input['asset_requisites']?><!--" value="--><?//=htmlspecialchars($asset_input['asset_name'], ENT_QUOTES, 'UTF-8')?><!--">--><?//=$asset_input['asset_name']?><!--</option>-->
+                                            <!----><?php //endforeach;?>
+                                            <!----><?php //endif; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -1250,22 +1278,6 @@ if ($slav_to_rub == 0)
 
                                     <div class="select-exchange w-100">
                                         <input required class="other_deposit" placeholder="0" type="text" name="exchange[input_sum]">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 input-exchange">
-                                <div class="row">
-                                    <div class="select-exchange w-100">
-                                        <!--                                <span class="select-exchange">Вид желаемого имущества</span>-->
-                                        <select required class="other_deposit deposit_type" name="exchange[deposit_type]">
-                                            <option disabled selected>Вид целевой программы</option>
-                                            <?php if (isset($deposit_types) && !empty($deposit_types)): ?>
-                                                <?php foreach ($deposit_types as $deposit_type): ?>
-                                                    <option value="<?=$deposit_type?>"><?=$deposit_type?></option>
-                                                <?php endforeach;?>
-                                            <?php endif; ?>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
